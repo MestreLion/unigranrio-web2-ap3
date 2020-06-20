@@ -1,33 +1,41 @@
 package com.rodrigosilva.ap3.view;
 
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
+
+import com.rodrigosilva.ap3.model.Message;
+import com.rodrigosilva.ap3.service.MessageService;
 
 @Named
 @RequestScoped
 public class Bean {
-	private String input;
-	private String output;
+	private Message message = new Message();
+	private List<Message> messages;
+
+	@Inject
+	private MessageService messageService;
+
+	@PostConstruct
+	public void init() {
+		messages = messageService.list();
+	}
 
 	public void submit() {
-		output = "Hello World! You have typed: " + input;
+		messageService.create(message);
+		messages.add(message);
+		message = new Message();
 	}
 
-	////////////////////////////////////////////
+	//////////////////////////////////////////////
 
-	public String getInput() {
-		return input;
+	public Message getMessage() {
+		return message;
 	}
-
-	public void setInput(String input) {
-		this.input = input;
-	}
-
-	public String getOutput() {
-		return output;
-	}
-
-	public void setOutput(String output) {
-		this.output = output;
+	public List<Message> getMessages() {
+		return messages;
 	}
 }

@@ -11,11 +11,15 @@
 	<h1>Hello World</h1>
 	<h:form>
 		<h:outputLabel for="input" value="Input" />
-		<h:inputText id="input" value="#{bean.input}" />
+		<h:inputText id="input" value="#{bean.message.text}" />
+		<h:message id="input_m" for="input" />
 		<h:commandButton value="Submit" action="#{bean.submit}">
-			<f:ajax execute="@form" render=":output" />
+			<f:ajax execute="@form" render="input input_m :table" />
 		</h:commandButton>
 	</h:form>
-	<h:outputText id="output" value="#{bean.output}" />
+	<h:dataTable id="table" value="#{bean.messages}" var="message">
+		<h:column>#{message.id}</h:column>
+		<h:column>#{message.text}</h:column>
+	</h:dataTable>
 </h:body>
 </html>
