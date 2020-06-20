@@ -10,10 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
 
-/**
- * Entity implementation class for Entity: Message
- *
- */
 @Entity
 public class Message implements Serializable {
 
@@ -41,9 +37,4 @@ public class Message implements Serializable {
 	public void setText(String text) {
 		this.text = text;
 	}
-
-
-
-
-
 }

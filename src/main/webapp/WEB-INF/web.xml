@@ -13,6 +13,10 @@
 		<url>jdbc:h2:mem:ap3;DB_CLOSE_DELAY=-1</url>
 	</data-source>
 
+	<welcome-file-list>
+		<welcome-file>index.xhtml</welcome-file>
+	</welcome-file-list>
+
 	<!-- See https://balusc.omnifaces.org/2015/10/the-empty-string-madness.html -->
 	<context-param>
 		<param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
