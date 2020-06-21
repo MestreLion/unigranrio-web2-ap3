@@ -6,24 +6,19 @@
 	xmlns:p="http://primefaces.org/ui"
 >
 <h:head>
-	<title>Carros</title>
+	<title>Venda de Carros AP3</title>
 	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
 </h:head>
 <h:body>
-	<h1>Carros</h1>
-	<p:linkButton outcome="carro" value="Novo Carro" icon="pi pi-star"/>
-	<h:form>
-		<h:outputLabel for="input" value="Input" />
-		<h:inputText id="input" value="#{bean.message.text}" />
-		<h:message id="input_m" for="input" />
-		<h:commandButton value="Submit" action="#{bean.submit}">
-			<f:ajax execute="@form" render="input input_m :list" />
-		</h:commandButton>
-	</h:form>
-	<p:dataTable id="list" value="#{bean.messages}" var="message">
-		<f:facet name="header">Carros</f:facet>
-		<p:column headerText="ID">      #{message.id}  </p:column>
-		<p:column headerText="Mensagem">#{message.text}</p:column>
-	</p:dataTable>
+	<h1>Venda de Carros AP3, Bem Vindo!</h1>
+	<p:linkButton outcome="carros"   value="Carros"   icon="pi pi-desktop"/><!-- No pi-car :( (yet, I hope!) -->
+	<p:linkButton outcome="clientes" value="Clientes" icon="pi pi-users"/>
+	<p:linkButton outcome="vendas"   value="Vendas"   icon="pi pi-dollar"/>
+	<br/>
+	<br/>
+	<p:linkButton outcome="mensagens" value="Fale conosco!" icon="pi pi-comment"/><br/>
+	<br/>
+	<p:linkButton href="https://github.com/MestreLion/unigranrio-web2-ap3" value="Código Fonte" icon="pi pi-android"/><br/><!-- github soon -->
+	Por <h:outputLink value="https://github.com/MestreLion">Rodrigo Silva <span class="pi pi-external-link"/></h:outputLink><br/>
 </h:body>
 </html>
