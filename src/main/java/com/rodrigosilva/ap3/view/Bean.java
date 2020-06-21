@@ -24,10 +24,11 @@ public class Bean {
 		messages = messageService.list();
 	}
 
-	public void submit() {
+	public String submit() {
 		messageService.create(message);
 		messages.add(message);
 		message = new Message();
+		return null;
 	}
 
 	//////////////////////////////////////////////
