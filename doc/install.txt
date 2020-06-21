@@ -1,0 +1,8 @@
+# Some commands and procedures to configure the environment for AP3
+
+# Manually add all env vars in ap3.env to Eclipse WildFly runtime:
+# - Open Server (Double-click or F3) > Open Launch Configuration > Environment > Add
+
+# Patch $AP3_JBOSS_DIR/standalone/configuration/standalone.xml
+
+# [OPTIONAL] Create wildfly_standalone.sh that sources ap3.env and runs $AP3_JBOSS_DIR/bin/standalone.sh
