@@ -28,6 +28,14 @@
 		<version>8.0.0</version>
 		<scope>provided</scope>
 	</dependency>
+
+	<!-- Primefaces -->
+	<!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+	<dependency>
+		<groupId>org.primefaces</groupId>
+		<artifactId>primefaces</artifactId>
+		<version>8.0</version>
+	</dependency>
 </dependencies>
 
 </project>
