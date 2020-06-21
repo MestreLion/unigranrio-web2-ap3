@@ -6,11 +6,20 @@
 		http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
 >
 	<persistence-unit name="AP3" transaction-type="JTA">
-		<jta-data-source>java:global/AP3</jta-data-source>
+		<jta-data-source>java:jboss/datasources/${AP3_H2_DATABASE}</jta-data-source>
 		<properties>
-			<property
-				name="javax.persistence.schema-generation.database.action"
-				value="drop-and-create" />
+			<property name="javax.persistence.schema-generation.database.action"       value="none" />  <!-- drop-and-create -->
+
+			<property name="javax.persistence.schema-generation.scripts.action"        value="create" />
+			<property name="javax.persistence.schema-generation.scripts.create-target" value="${AP3_DATA_DIR}/create.sql" />
+			<property name="javax.persistence.schema-generation.scripts.drop-target"   value="${AP3_DATA_DIR}/drop.sql" />
+<!--
+			<property name="javax.persistence.schema-generation.create-source"         value="script" />
+			<property name="javax.persistence.schema-generation.drop-source"           value="script" />
+			<property name="javax.persistence.schema-generation.create-script-source"  value="${AP3_DATA_DIR}/create.sql" />
+			<property name="javax.persistence.schema-generation.drop-script-source"    value="${AP3_DATA_DIR}/drop.sql" />
+			<property name="javax.persistence.sql-load-script-source"                  value="${AP3_DATA_DIR}/data.sql" />
+ -->
 		</properties>
 	</persistence-unit>
 </persistence>

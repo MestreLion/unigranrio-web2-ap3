@@ -7,12 +7,6 @@
 >
 	<display-name>AP3</display-name>
 
-	<data-source>
-		<name>java:global/AP3</name>
-		<class-name>org.h2.jdbcx.JdbcDataSource</class-name>
-		<url>jdbc:h2:mem:ap3;DB_CLOSE_DELAY=-1</url>
-	</data-source>
-
 	<welcome-file-list>
 		<welcome-file>index.xhtml</welcome-file>
 	</welcome-file-list>
