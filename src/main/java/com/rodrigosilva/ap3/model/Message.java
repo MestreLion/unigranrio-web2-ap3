@@ -1,6 +1,7 @@
 package com.rodrigosilva.ap3.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Column;
@@ -22,6 +23,13 @@ public class Message implements Serializable {
 	@Column(nullable = false) @Lob
 	private @NotNull String text;
 
+	@Column(nullable = false)
+	private @NotNull Date date;
+
+	public Message() {
+		this.date = new Date();
+	}
+
 	/////////////////////////////////////////////////////////////
 
 	public Long getId() {
@@ -36,5 +44,11 @@ public class Message implements Serializable {
 	}
 	public void setText(String text) {
 		this.text = text;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }

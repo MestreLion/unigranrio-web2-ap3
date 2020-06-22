@@ -1,5 +1,6 @@
 package com.rodrigosilva.ap3.view;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -22,11 +23,12 @@ public class MessageBean {
 	@PostConstruct
 	public void init() {
 		messages = messageService.list();
+		Collections.reverse(messages);  // More recent first
 	}
 
 	public String submit() {
 		messageService.create(message);
-		messages.add(message);
+		messages.add(0, message);  // insert at beginning
 		message = new Message();
 		return null;
 	}

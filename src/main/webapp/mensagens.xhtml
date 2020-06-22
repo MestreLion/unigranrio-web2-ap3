@@ -24,7 +24,7 @@
 	<br/>
 	<p:dataTable id="list" value="#{messageBean.messages}" var="message">
 		<f:facet name="header">Veja o que nossos clientes falaram!</f:facet>
-		<p:column headerText="ID">      #{message.id}  </p:column>
+		<p:column headerText="Data">    #{message.date}</p:column>
 		<p:column headerText="Mensagem">#{message.text}</p:column>
 	</p:dataTable>
 </h:body>
