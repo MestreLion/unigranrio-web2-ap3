@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui"
 >
 <h:head>
-	<title>Falee Conosco!</title>
+	<title>Fale Conosco!</title>
 	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
 </h:head>
 <h:body>
@@ -15,14 +15,14 @@
 	<h3>Sua opinião é muito importante para nós!</h3>
 	<h:form>
 		<h:outputLabel for="input" value="Mande seu feedback, é totalmente anônimo"/><br/>
-		<h:inputText id="input" value="#{bean.message.text}" />
+		<h:inputText id="input" value="#{messageBean.message.text}" />
 		<h:message id="input_m" for="input" />
-		<h:commandButton value="Enviar" action="#{bean.submit}">
+		<h:commandButton value="Enviar" action="#{messageBean.submit}">
 			<f:ajax execute="@form" render="input input_m :list" />
 		</h:commandButton>
 	</h:form>
 	<br/>
-	<p:dataTable id="list" value="#{bean.messages}" var="message">
+	<p:dataTable id="list" value="#{messageBean.messages}" var="message">
 		<f:facet name="header">Veja o que nossos clientes falaram!</f:facet>
 		<p:column headerText="ID">      #{message.id}  </p:column>
 		<p:column headerText="Mensagem">#{message.text}</p:column>

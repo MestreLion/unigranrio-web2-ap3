@@ -12,7 +12,7 @@ import com.rodrigosilva.ap3.service.MessageService;
 
 @Named
 @RequestScoped
-public class Bean {
+public class MessageBean {
 	private Message message = new Message();
 	private List<Message> messages;
 
