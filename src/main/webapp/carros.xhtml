@@ -12,6 +12,14 @@
 <h:body>
 	<p:linkButton outcome="index" value="Início" icon="pi pi-home"/>
 	<h1>Carros</h1>
-	<p:linkButton outcome="carro" value="Novo Carro" icon="pi pi-star-o"/>
+	<p:linkButton outcome="carro" value="Novo Carro" icon="pi pi-star-o"/><br/>
+	<p:dataTable id="list" value="#{carroBean.carros}" var="carro">
+		<f:facet name="header">Carros</f:facet>
+		<p:column headerText="ID">        #{carro.id}        </p:column>
+		<p:column headerText="Fabricante">#{carro.fabricante}</p:column>
+		<p:column headerText="Modelo">    #{carro.modelo}    </p:column>
+		<p:column headerText="Ano">       #{carro.ano}       </p:column>
+		<p:column headerText="Cor">       #{carro.cor}       </p:column>
+	</p:dataTable>
 </h:body>
 </html>
