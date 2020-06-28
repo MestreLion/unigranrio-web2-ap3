@@ -13,6 +13,7 @@
 	<p:linkButton outcome="index" value="Início" icon="pi pi-home"/>
 	<h1>Carros</h1>
 	<p:linkButton outcome="carro" value="Novo Carro" icon="pi pi-star-o"/><br/>
+	<br/>
 	<p:dataTable id="list" value="#{carroBean.carros}" var="carro">
 		<f:facet name="header">Carros</f:facet>
 		<p:column headerText="ID">        #{carro.id}        </p:column>

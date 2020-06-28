@@ -16,11 +16,11 @@ public class Carro implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false) private @NotNull String  fabricante;
-	@Column(nullable = false) private @NotNull String  modelo;
-	@Column(nullable = false) private @NotNull Integer ano;
-	@Column(nullable = false) private @NotNull String  cor;
-	@Column(nullable = false) private @NotNull Float   valor;
+	@Column(nullable=false) private @NotNull String  fabricante;
+	@Column(nullable=false) private @NotNull String  modelo;
+	@Column(nullable=false) private @NotNull Integer ano;
+	@Column(nullable=false) private @NotNull String  cor;
+	@Column(nullable=false) private @NotNull Float   valor;
 
 	//////////////////////////////////////////////////////////////////
 

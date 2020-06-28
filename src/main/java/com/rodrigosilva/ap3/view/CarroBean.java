@@ -31,6 +31,7 @@ public class CarroBean {
 		return null;
 	}
 
+
 	//////////////////////////////////////////////
 
 	public Carro getCarro() {
