@@ -1,0 +1,7 @@
+/* AP3 Primefaces CSS Overrides*/
+
+/* <p:selectOneMenu> <p:column> item (multi-column <select>) */
+body .ui-selectonemenu-panel .ui-selectonemenu-items .ui-selectonemenu-item > td { padding: 3px; }
+
+/* <p:panelGrid> <p:column> cell */
+body .ui-panelgrid .ui-panelgrid-cell { padding: 5px; }

@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-BR"
+<html
+	lang="#{localeBean.language}"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 >
-<f:view contentType="text/html" locale="pt_BR">
+<f:view contentType="text/html" locale="#{localeBean.active}">
 <h:head>
 	<title>Carro</title>
 	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+	<h:outputStylesheet name="css/ap3.css"/>
 </h:head>
 <h:body>
 	<p:linkButton outcome="index"  value="Início" icon="pi pi-home"/>
 	<p:linkButton outcome="carros" value="Voltar" icon="pi pi-caret-left"/>
+	<p:separator/>
 	<h1>Carro</h1>
 	<p:separator/>
 	<h:form>
@@ -39,6 +42,26 @@
 
 			<p:commandButton action="#{carroBean.submit}" update="@form" value="Salvar"/>
 		</p:panelGrid>
+	</h:form>
+	<p:separator/>
+	<h:form>
+		<p:panelGrid styleClass="ui-noborder" columns="2">
+		<p:graphicImage
+			width="30"
+			name="flags/languages/#{localeBean.language}.svg"
+			alt="#{localeBean.nativeName(localeBean.active)}"
+		/>
+		<p:selectOneMenu value="#{localeBean.language}" var="l">
+			<f:selectItems
+				value="#{localeBean.supported}" var="locale"
+				itemValue="#{locale.toLanguageTag()}"
+				itemLabel="#{localeBean.nativeName(locale)}"
+			/>
+			<f:ajax listener="#{localeBean.reload()}" />
+			<p:column><p:graphicImage width="30" name="flags/languages/#{l}.svg" alt="#{l}"/></p:column>
+			<p:column><h:outputText value="#{localeBean.nativeName(l)}"/></p:column>
+		</p:selectOneMenu>
+	</p:panelGrid>
 	</h:form>
 </h:body>
 </f:view>
