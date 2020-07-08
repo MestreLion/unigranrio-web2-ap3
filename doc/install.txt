@@ -7,6 +7,16 @@
 
 # [OPTIONAL] Create wildfly_standalone.sh that sources ap3.env and runs $AP3_JBOSS_DIR/bin/standalone.sh
 
+# Broken Pipe /JSF1064: Unable to find or serve resource
+# https://forum.primefaces.org/viewtopic.php?f=48&t=55047&start=10
+# The feature can be disabled in Firefox in about:config by setting network.http.rcwn.enabled to false.
+# For me, I stopped getting log messages after setting this to false.
+# Of course this is not a solution, but the log messages seem to be benign in our case and could be ignored.
+
+
+# Country flag icons
+# https://github.com/lipis/flag-icon-css
+
 --- a/standalone/configuration/standalone.xml	2020-05-03 20:52:12.000000000 -0300
 +++ b/standalone/configuration/standalone.xml	2020-06-21 06:24:33.961129895 -0300
 @@ -39,6 +39,18 @@
