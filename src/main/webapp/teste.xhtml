@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+>
+<h:head>
+	<title>Teste</title>
+</h:head>
+<h:body>
+<h:form>
+	<h:link outcome="index"  value="Início"/>
+	<h1>Teste</h1>
+	<h:messages/>
+	<p:outputLabel   for="@next"	 value="Teste"/>
+	<h:inputText     id="teste"      value=""         required="true" label="sadasdasdas"/>
+	<h:message       for="@previous"/>
+	<br/>
+	<br/>
+	<h:outputLabel   for="@next"	 value="Nome"/>
+	<h:inputText     id="nome"       value=""         required="true"/>
+	<h:message       for="@previous"/>
+	<br/>
+	<br/>
+	<h:commandButton value="Send" update="@all"/>
+</h:form>
+</h:body>
+</html>
