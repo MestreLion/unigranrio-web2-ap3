@@ -27,5 +27,8 @@
 			<supported-locale>es</supported-locale>
 			<supported-locale>fr</supported-locale>
 		</locale-config>
+
+		<!-- Root of classpath, /src/main/java/Messages.properties -->
+		<message-bundle>Messages</message-bundle>
 	</application>
 </faces-config>

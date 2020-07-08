@@ -19,26 +19,22 @@
 	<h1>Carro</h1>
 	<p:separator/>
 	<h:form>
-		<p:panelGrid columns="3" styleClass="ui-noborder">
+		<p:messages/>
+		<p:panelGrid columns="2" styleClass="ui-noborder">
 			<p:outputLabel   for="@next"     value="Fabricante"/>
 			<p:inputText     id="fabricante" value="#{carroBean.carro.fabricante}"/>
-			<p:message       for="@previous"/>
 
 			<p:outputLabel   for="@next"     value="Modelo"/>
 			<p:inputText     id="modelo"     value="#{carroBean.carro.modelo}"/>
-			<p:message       for="@previous"/>
 
 			<p:outputLabel   for="@next"     value="Cor"/>
 			<p:inputText     id="cor"        value="#{carroBean.carro.cor}"/>
-			<p:message       for="@previous"/>
 
 			<p:outputLabel   for="@next"     value="Ano"/>
 			<p:inputNumber   id="ano"        value="#{carroBean.carro.ano}" maxValue="2021" thousandSeparator=""/>
-			<p:message       for="@previous"/>
 
 			<p:outputLabel   for="@next"     value="Valor"/>
 			<p:inputNumber   id="valor"      value="#{carroBean.carro.valor}" symbol="R$ " emptyValue="always"/>
-			<p:message       for="@previous"/>
 
 			<p:commandButton action="#{carroBean.submit}" update="@form" value="Salvar"/>
 		</p:panelGrid>
