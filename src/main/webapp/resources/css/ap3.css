@@ -5,3 +5,12 @@ body .ui-selectonemenu-panel .ui-selectonemenu-items .ui-selectonemenu-item > td
 
 /* <p:panelGrid> <p:column> cell */
 body .ui-panelgrid .ui-panelgrid-cell { padding: 5px; }
+
+/* <p:selectOneButton> for pseudo color picker
+.selectonebutton-cor      { width: 310px; }
+.selectonebutton-cor span { padding: 2px 3px 0 3px !important; }
+*/
+
+/* Custom */
+
+.spinner-ano { width: 35% }

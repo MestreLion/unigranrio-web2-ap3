@@ -7,6 +7,7 @@
 	xmlns:p="http://primefaces.org/ui"
 >
 <f:view contentType="text/html" locale="#{localeBean.active}">
+<p:importConstants type="com.rodrigosilva.ap3.view.CarroBean" var="C"/>
 <h:head>
 	<title>Carro</title>
 	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
@@ -21,43 +22,90 @@
 	<h:form>
 		<p:messages/>
 		<p:panelGrid columns="2" styleClass="ui-noborder">
-			<p:outputLabel   for="@next"     value="Fabricante"/>
-			<p:inputText     id="fabricante" value="#{carroBean.carro.fabricante}"/>
+			<p:outputLabel   for="@next"      value="Fabricante"/>
+			<p:selectOneMenu id="fabricante"  value="#{carroBean.carro.fabricante}" var="f">
+				<!-- Explicit itemValue needed for Primefaces multi-column -->
+				<f:selectItem itemValue="" noSelectionOption="true"/>
+				<f:selectItems value="#{carroBean.fabricantes}" itemValue="#{f}" var="f"
+					itemLabel="&lt;img width='15' src='#{resource['cars/' += f += '.png']}' alt='#{f}'/&gt; #{f}"
+					itemLabelEscaped="false"
+				/>
+				<p:column><p:graphicImage width="25" name="cars/#{f}.png" alt="#{f}"/></p:column>
+				<p:column><h:outputText value="#{f}"/></p:column>
+			</p:selectOneMenu>
 
-			<p:outputLabel   for="@next"     value="Modelo"/>
-			<p:inputText     id="modelo"     value="#{carroBean.carro.modelo}"/>
+			<p:outputLabel   for="@next"      value="Modelo"/>
+			<p:inputText     id="modelo"      value="#{carroBean.carro.modelo}"/>
 
-			<p:outputLabel   for="@next"     value="Cor"/>
-			<p:inputText     id="cor"        value="#{carroBean.carro.cor}"/>
+			<p:outputLabel   for="@next"      value="Cor"/>
+			<p:selectOneMenu id="cor"         value="#{carroBean.carro.cor}" var="c" >
+				<f:selectItem  itemValue="" noSelectionOption="true"
+					itemLabel="&lt;img width='80' height='30' src='#{resource['primefaces:spacer/dot_clear.gif']}'/&gt;"
+					itemEscaped="false"
+				/>
+				<f:selectItems value="#{carroBean.cores}" itemValue="#{c}" var="c"
+					itemLabel="&lt;img width='80' height='30' src='#{resource['primefaces:spacer/dot_clear.gif']}'
+						style='background-color: #{c}' alt='#{c}' title='#{c}'/&gt;"
+					itemLabelEscaped="false"
+				/>
+				<p:column><p:spacer width="100" height="30" style="background-color: #{c}" title="#{c}"/></p:column>
+			</p:selectOneMenu>
+<!--
+			<p:selectOneButton id="cor"       value="#{carroBean.carro.cor}" var="c" styleClass="selectonebutton-cor">
+				<f:selectItems value="#{carroBean.cores}" var="c"
+					itemLabel="&lt;img width='30' height='30' src='#{resource['primefaces:spacer/dot_clear.gif']}'
+						style='background-color: #{c}' alt='#{c}' title='#{c}'/&gt;"
+					itemLabelEscaped="false"
+				/>
+			</p:selectOneButton>
+-->
 
-			<p:outputLabel   for="@next"     value="Ano"/>
-			<p:inputNumber   id="ano"        value="#{carroBean.carro.ano}" maxValue="2021" thousandSeparator=""/>
+			<p:outputLabel   for="@next"      value="Ano"/>
+			<p:spinner       id="ano"         value="#{carroBean.carro.ano}"
+				min="#{C.ANO_MIN}"
+				max="#{C.ANO_MAX}"
+				thousandSeparator=""
+				styleClass="spinner-ano"
+			/>
+<!--
+			<p:selectOneMenu id="ano"         value="#{carroBean.carro.ano}">
+				<f:selectItems value="#{carroBean.anos}"/>
+			</p:selectOneMenu>
+-->
 
-			<p:outputLabel   for="@next"     value="Valor"/>
-			<p:inputNumber   id="valor"      value="#{carroBean.carro.valor}" symbol="R$ " emptyValue="always"/>
+			<p:outputLabel   for="@next"      value="Valor"/>
+			<p:inputNumber   id="valor"       value="#{carroBean.carro.valor}"
+				symbol="R$ " emptyValue="always"
+			/>
+<!--
+			<div class="ui-inputgroup">
+				<span class="ui-inputgroup-addon">R$</span>
+				<p:inputNumber id="valor" value="#{carroBean.carro.valor}"
+					decimalPlaces="0" placeholder="Valor"/>
+				<span class="ui-inputgroup-addon">,00</span>
+			</div>
+-->
 
 			<p:commandButton action="#{carroBean.submit}" update="@form" value="Salvar"/>
 		</p:panelGrid>
 	</h:form>
 	<p:separator/>
 	<h:form>
-		<p:panelGrid styleClass="ui-noborder" columns="2">
-		<p:graphicImage
-			width="30"
-			name="flags/languages/#{localeBean.language}.svg"
-			alt="#{localeBean.nativeName(localeBean.active)}"
-		/>
 		<p:selectOneMenu value="#{localeBean.language}" var="l">
 			<f:selectItems
-				value="#{localeBean.supported}" var="locale"
-				itemValue="#{locale.toLanguageTag()}"
-				itemLabel="#{localeBean.nativeName(locale)}"
+				var="l"
+				value="#{localeBean.supported}"
+				itemValue="#{l.toLanguageTag()}"
+				itemLabel="&lt;img width='20'
+					src='#{resource['flags/languages/' += l.toLanguageTag() += '.svg']}'
+					alt='#{l.toLanguageTag()}'/&gt;
+					#{localeBean.nativeName(l)}"
+				itemLabelEscaped="false"
 			/>
 			<f:ajax listener="#{localeBean.reload()}" />
 			<p:column><p:graphicImage width="30" name="flags/languages/#{l}.svg" alt="#{l}"/></p:column>
 			<p:column><h:outputText value="#{localeBean.nativeName(l)}"/></p:column>
 		</p:selectOneMenu>
-	</p:panelGrid>
 	</h:form>
 </h:body>
 </f:view>
