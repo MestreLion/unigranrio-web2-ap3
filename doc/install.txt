@@ -16,6 +16,13 @@
 
 # Country flag icons
 # https://github.com/lipis/flag-icon-css
+# MIT
+
+# Car Icons
+# https://icons8.com/
+# Free to use, Link on Website
+
+
 
 --- a/standalone/configuration/standalone.xml	2020-05-03 20:52:12.000000000 -0300
 +++ b/standalone/configuration/standalone.xml	2020-06-21 06:24:33.961129895 -0300
