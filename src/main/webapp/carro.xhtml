@@ -7,7 +7,9 @@
 	xmlns:p="http://primefaces.org/ui"
 >
 <f:view contentType="text/html" locale="#{localeBean.active}">
-<p:importConstants type="com.rodrigosilva.ap3.view.CarroBean" var="C"/>
+<f:metadata>
+	<f:importConstants type="com.rodrigosilva.ap3.view.CarroBean" var="C"/>
+</f:metadata>
 <h:head>
 	<title>Carro</title>
 	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
